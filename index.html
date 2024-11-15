@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (and Popper for modal functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Job Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #153e7f;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Arise Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#post-job">Post a Job</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#current-jobs">Current Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+         <!-- Add this inside your navbar section -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+                </li>
+            </ul>
+
+    </nav>
+
+
+    <!-- Home Section with Background Image -->
+    <section id="home" class="home-section">
+        <div class="container">
+            <div class="row justify-content-center text-center text-light">
+                <div class="col-12">
+                    <h1>FIND THE MOST EXCITING JOBS</h1>
+                    <p>Discover a variety of job opportunities tailored to your skills and interests.</p>
+                    
+                    <!-- Job Type Filter -->
+                    <div class="filters">
+                        <label for="job-type">Job Type:</label>
+                        <select id="job-type">
+                            <option value="all">All</option>
+                            <option value="internship">Internship</option>
+                            <option value="full-time">Full-Time</option>
+                            <option value="part-time">Part-Time</option>
+                        </select>
+                        <button onclick="filterJobs()">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Post a Job Section -->
+    <section id="post-job" class="container mt-5 post-job-section">
+        <h2>Post a Job</h2>
+        <form id="job-form">
+            <div class="mb-3">
+                <label for="company" class="form-label">Company Name</label>
+                <input type="text" id="company" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="job-title" class="form-label">Job Title</label>
+                <input type="text" id="job-title" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="job-description" class="form-label">Job Description</label>
+                <textarea id="job-description" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="job-type-post" class="form-label">Job Type</label>
+                <select id="job-type-post" class="form-select">
+                    <option value="internship">Internship</option>
+                    <option value="full-time">Full-Time</option>
+                    <option value="part-time">Part-Time</option>
+                </select>
+            </div>
+
+            <button type="submit" class="button">Post Job</button>
+        </form>
+    </section>
+
+    <!-- Example Jobs Section -->
+    <h2 class="joblist">Current Jobs</h2>
+    <section id="current-jobs">
+        <div class="job-cards">
+            <!-- Job Card 1 -->
+            <div class="job-card">
+                <h3>Frontend Developer Internship</h3>
+                <p><strong>Company:</strong> Tech Innovators</p>
+                <p><strong>Job Description:</strong> Assist in the development of interactive websites and web applications. Knowledge of HTML, CSS, and JavaScript required.</p>
+                <p><strong>Job Type:</strong> Internship</p>
+            </div>
+            
+            <!-- Job Card 2 -->
+            <div class="job-card">
+                <h3>Marketing Assistant</h3>
+                <p><strong>Company:</strong> Bright Future Solutions</p>
+                <p><strong>Job Description:</strong> Help with creating marketing campaigns, managing social media, and analyzing marketing data.</p>
+                <p><strong>Job Type:</strong> Part-Time</p>
+            </div>
+            
+            <!-- Job Card 3 -->
+            <div class="job-card">
+                <h3>Full-Stack Developer</h3>
+                <p><strong>Company:</strong> CodeCrafters</p>
+                <p><strong>Job Description:</strong> Build and maintain scalable web applications. Expertise in JavaScript, Node.js, and MongoDB required.</p>
+                <p><strong>Job Type:</strong> Full-Time</p>
+            </div>
+            
+            <!-- Job Card 4 -->
+            <div class="job-card">
+                <h3>Graphic Design Intern</h3>
+                <p><strong>Company:</strong> Creativa</p>
+                <p><strong>Job Description:</strong> Work on various graphic design projects including social media posts, branding materials, and website designs.</p>
+                <p><strong>Job Type:</strong> Internship</p>
+            </div>
+        
+            <!-- Job Card 5 -->
+            <div class="job-card">
+                <h3>Data Analyst</h3>
+                <p><strong>Company:</strong> Insight Analytics</p>
+                <p><strong>Job Description:</strong> Analyze and interpret data trends to provide business insights. Experience with Excel, Python, and SQL preferred.</p>
+                <p><strong>Job Type:</strong> Full-Time</p>
+            </div>
+        
+            <!-- Job Card 6 -->
+            <div class="job-card">
+                <h3>Product Manager</h3>
+                <p><strong>Company:</strong> InnovateTech</p>
+                <p><strong>Job Description:</strong> Lead product strategy, manage product roadmaps, and coordinate between teams. Strong leadership and project management skills are required.</p>
+                <p><strong>Job Type:</strong> Full-Time</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- About Section -->
+    <section id="about" class="about-us-container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <!-- Image Section -->
+            <div class="about-image">
+                <img src="https://static.wixstatic.com/media/33e1f0_224cb25daa774f9886b5fb88ecaba8a1~mv2.jpg/v1/fill/w_692,h_448,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/serviced%20office.jpg" alt="About Us Image">
+            </div>
+    
+            <!-- Text Section -->
+            <div class="about-text">
+                <p>Welcome to Arise Job Portal, your go-to job portal for exciting career opportunities. Whether you're a student looking for internships or a professional searching for full-time roles, our platform provides a wide range of job listings from various industries. Our mission is to connect talented individuals with companies looking for the right skills and talent to grow their businesses.</p>
+                <p>At Arise Job Portal, we strive to make the job search process easier, more efficient, and effective. With our intuitive interface and job filters, you can find the perfect job that suits your skills, interests, and career goals. Join us today and take the first step toward your dream job!</p>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="signupForm">
+                    <div class="mb-3">
+                        <label for="signupName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="signupName" placeholder="Enter your full name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signupPassword" placeholder="Create a password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+</body>
+</html>
+
+
